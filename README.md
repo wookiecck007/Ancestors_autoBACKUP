@@ -13,7 +13,7 @@
      /_/    \_|_| |_|\___\___|___/\__\___/|_|  |___/  
 ```
   This is a small powershell backup tool.
-  Download the AncestorsBackup.ps1 to any directory and Run with powershell before starting the game
+  **Download the AncestorsBackup.ps1** to **any directory** and **Run with powershell** **before starting the game**
   Auto Backup Powershell script for Ancestors V1.0 Windows
 	To use - Just run the powershell script whilst playing the game.
   
