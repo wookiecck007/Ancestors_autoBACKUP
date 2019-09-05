@@ -1,4 +1,7 @@
 # Ancestors_autoBACKUP
+TLDR; Downlaod and run the 1click batch file and follow the prompts (THis requires Internet connection for latest code)
+else, Download the ps1 file to run the code locally.
+
 ```
      __          ______   ____  _  _______ ______       __      ____     ___  
      \ \        / / __ \ / __ \| |/ |_   _|  ____|      \ \    / /_ |   / _ \ 
