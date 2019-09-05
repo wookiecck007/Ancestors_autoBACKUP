@@ -108,6 +108,6 @@ echo "Save slot being backed up:`t`t$SaveSlot`r`n(File: $global:currentSAVE)`r`n
 echo "Backup slot being loaded:`t`t$BackupSlot`r`n(File: $global:backupSAVE)`r`n"
 echo "Maximum amount of saves to keep:`t$maxSAVES`r`n(Folder: $global:SavePath)`r`n`r`n"
 echo "The game should lauch now. (If not launched please run it manually)`r`n`r`n"
-com.epicgames.launcher://apps/Amaranth?action=launch&silent=true
+Start-Process "com.epicgames.launcher://apps/Amaranth?action=launch&silent=true"
 echo "Close this window to stop the backup process"
 while ($true) {sleep 1}
