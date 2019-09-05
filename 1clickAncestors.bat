@@ -1,7 +1,7 @@
 @echo off
 %@Try%
 	@echo Downloading script.....
-	PowerShell -NoProfile -ExecutionPolicy Bypass -Command "iex ((New-Object System.Net.WebClient).DownloadString('https://raw.githubusercontent.com/wookiecck007/Ancestors_autoBACKUP/master/AncestorsBackup.')) -ErrorVariable ProcessError; echo $ProcessError"
+	PowerShell -NoProfile -ExecutionPolicy Bypass -Command "iex ((New-Object System.Net.WebClient).DownloadString('https://raw.githubusercontent.com/wookiecck007/Ancestors_autoBACKUP/master/AncestorsBackup.ps1'))"
 %@EndTry%
 :@Catch
 	cls
