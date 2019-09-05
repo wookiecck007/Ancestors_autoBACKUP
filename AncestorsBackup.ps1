@@ -54,6 +54,15 @@ if($enableUI -eq 'TRUE'){
 		if(-not(($mSAVES -ge 1) -and ($mSAVES -le 5))){
 			$mSAVES = 5
 		}
+		clear
+		echo "Please confirm the following:`r`n`r`n`r`n"
+		echo "Save slot being backed up:`t`t$SaveSlot`r`n(File: $global:currentSAVE)`r`n"
+		echo "Backup slot being loaded:`t`t$BackupSlot`r`n(File: $global:backupSAVE)`r`n"
+		echo "Maximum amount of saves to keep:`t$maxSAVES`r`n(Folder: $global:SavePath)`r`n`r`n"
+		$confirm = Read-Host -Prompt 'Confirm with Y or YES'
+		if(-not(($confirm -eq 'Y' ) -or ($confirm -eq 'YES' ))){
+			exit
+		}
 	}
 }
 $global:mSAVES = $maxSAVES
@@ -61,15 +70,6 @@ $global:currentSAVE = "Savegame$($SaveSlot-1)"
 $global:backupSAVE = "Savegame$($BackupSlot-1)"
 $global:SavePath = "$env:LOCALAPPDATA\Ancestors\Saved\SaveGames"
 cd $global:SavePath
-clear
-echo "Please confirm the following:`r`n`r`n`r`n"
-echo "Save slot being backed up:`t`t$SaveSlot`r`n(File: $global:currentSAVE)`r`n"
-echo "Backup slot being loaded:`t`t$BackupSlot`r`n(File: $global:backupSAVE)`r`n"
-echo "Maximum amount of saves to keep:`t$maxSAVES`r`n(Folder: $global:SavePath)`r`n`r`n"
-$confirm = Read-Host -Prompt 'Confirm with Y or YES'
-if(-not(($confirm -eq 'Y' ) -or ($confirm -eq 'YES' ))){
-	exit
-}
 $watcher = New-Object System.IO.FileSystemWatcher
 $watcher.Path = "$env:LOCALAPPDATA\Ancestors\Saved\SaveGames"
 $watcher.Filter = "$global:currentSAVE.sav"
@@ -103,9 +103,10 @@ echo "Save game checker"
 echo "Awaiting changes to $currentSAVE.sav at $env:LOCALAPPDATA\Ancestors\Saved\SaveGames"
 Register-ObjectEvent $watcher "Changed" -Action $action
 clear
-echo "Please confirm the following:`r`n`r`n`r`n"
+echo "Backup running:`r`n`r`n`r`n"
 echo "Save slot being backed up:`t`t$SaveSlot`r`n(File: $global:currentSAVE)`r`n"
 echo "Backup slot being loaded:`t`t$BackupSlot`r`n(File: $global:backupSAVE)`r`n"
 echo "Maximum amount of saves to keep:`t$maxSAVES`r`n(Folder: $global:SavePath)`r`n`r`n"
+echo "The game should lauch now. (If not launched please run it manually)`r`n`r`n"
 echo "Close this window to stop the backup process"
 while ($true) {sleep 1}
